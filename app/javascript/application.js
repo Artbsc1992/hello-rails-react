@@ -13,3 +13,5 @@ root.render(
     <App />
   </Provider>,
 );
+import "@hotwired/turbo-rails"
+import "./controllers"

@@ -4,7 +4,7 @@ import { fetchGreeting } from './redux/helloReducer';
 
 const Greet = () => {
   const dispatch = useDispatch();
-  const { greeting } = useSelector((state) => state.hello);
+  const greeting = useSelector((state) => state.hello);
 
   useEffect(() => {
     dispatch(fetchGreeting());
