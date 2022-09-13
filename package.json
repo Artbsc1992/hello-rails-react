@@ -5,8 +5,10 @@
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
@@ -14,6 +16,7 @@
     "@babel/plugin-syntax-jsx": "^7.18.6",
     "@babel/preset-env": "^7.19.0",
     "@babel/preset-react": "^7.18.6",
+    "@redux-devtools/core": "^3.13.1",
     "babel-loader": "^8.2.5",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
