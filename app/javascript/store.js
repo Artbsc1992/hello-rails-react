@@ -3,7 +3,7 @@ import helloReducer from './redux/helloReducer';
 
 const store = configureStore({
   reducer: {
-    hello: helloReducer,
+    greet: helloReducer,
   },
 });
 

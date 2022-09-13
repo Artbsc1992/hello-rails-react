@@ -20,12 +20,13 @@ const getGreetingFailure = () => ({
 });
 
 //thunk
-export const fetchGreeting = () => {
+const fetchGreetings = () => {
   return async (dispatch) => {
     dispatch(getGreeting());
     try {
       const res = await axios.get('/messages');
-      dispatch(getGreetingSuccess(res.data.greeting));
+      const greeting = res.data.greet;
+      dispatch(getGreetingSuccess(greeting));
     } catch (err) {
       dispatch(getGreetingFailure());
     }
@@ -65,10 +66,11 @@ const helloReducer = (state = initialState, action) => {
   }
 }
 
-export default { helloReducer, fetchGreeting };
+export default helloReducer;
 
 export {
   getGreeting,
   getGreetingSuccess,
   getGreetingFailure,
+  fetchGreetings,
 };
