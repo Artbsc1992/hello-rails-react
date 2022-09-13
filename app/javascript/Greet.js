@@ -1,12 +1,12 @@
-import react, { userEffect } from 'react';
-import { userDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchGreeting } from './redux/helloReducer';
 
 const Greet = () => {
-  const dispatch = userDispatch();
+  const dispatch = useDispatch();
   const { greeting } = useSelector((state) => state.hello);
 
-  userEffect(() => {
+  useEffect(() => {
     dispatch(fetchGreeting());
   }, [dispatch]);
 
