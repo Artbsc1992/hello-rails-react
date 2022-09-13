@@ -1,11 +1,11 @@
 import axios from 'axios';
-//actions
+// actions
 
 export const GET_GREETING = 'GET_GREETING';
 export const GET_GREETING_SUCCESS = 'GET_GREETING_SUCCESS';
 export const GET_GREETING_FAILURE = 'GET_GREETING_FAILURE';
 
-//action creators
+// action creators
 const getGreeting = () => ({
   type: GET_GREETING,
 });
@@ -19,28 +19,26 @@ const getGreetingFailure = () => ({
   type: GET_GREETING_FAILURE,
 });
 
-//thunk
-const fetchGreetings = () => {
-  return async (dispatch) => {
-    dispatch(getGreeting());
-    try {
-      const res = await axios.get('/messages');
-      const greeting = res.data.greet;
-      dispatch(getGreetingSuccess(greeting));
-    } catch (err) {
-      dispatch(getGreetingFailure());
-    }
-  };
+// thunk
+const fetchGreetings = () => async (dispatch) => {
+  dispatch(getGreeting());
+  try {
+    const res = await axios.get('/messages');
+    const greeting = res.data.greet;
+    dispatch(getGreetingSuccess(greeting));
+  } catch (err) {
+    dispatch(getGreetingFailure());
+  }
 };
 
-//initial state
+// initial state
 const initialState = {
   greeting: '',
   status: 'idle',
   error: null,
 };
 
-//reducer
+// reducer
 
 const helloReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -64,7 +62,7 @@ const helloReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default helloReducer;
 
